@@ -28,5 +28,5 @@ Apache 2.0, see LICENSE for more information.
 
 ## Similar Projects
 
-* [Asciinema(https://github.com/asciinema/asciinema): Make the Asciicasts
+* [Asciinema](https://github.com/asciinema/asciinema): Make the Asciicasts
 * [asciicast-edit](https://github.com/cirocosta/asciinema-edit): Another editor that can remove delay, change speed, and remove frames
