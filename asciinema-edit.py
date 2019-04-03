@@ -84,20 +84,20 @@ def crop(cast_dict, section_tuples):
     metadata, data_frames = cast_dict[0], cast_dict[1:]
 
     # Remove frames not in crop ranges
-    new_asciicast = [metadata]
+    new_asciicast = []
     ts_offset = 0
-    for section_index, section in enumerate(section_tuples):
-        start_ts, stop_ts = section
+    for section_index, section_bounds in enumerate(section_tuples):
+        start_ts, stop_ts = section_bounds
         if stop_ts == LAST_CAST_TIMESTAMP:
             stop_ts = data_frames[-1][0]
         for frame in data_frames:
-            if stop_ts >= frame[0] >= section[0]:
+            if stop_ts >= frame[0] >= section_bounds[0]:
                 # Adjust timestamp by start of time slice
-                frame[0] = frame[0] - start_ts + ts_offset
-                new_asciicast += [frame]
+                adjusted_frame_ts = frame[0] - start_ts + ts_offset
+                new_asciicast += [[adjusted_frame_ts, frame[1], frame[2]]]
         ts_offset += stop_ts - start_ts
 
-    return new_asciicast
+    return [metadata] + new_asciicast
 
 
 def validate_sections(sections):
