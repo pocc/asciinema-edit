@@ -2,6 +2,8 @@
 
 _Rearrange and remove asciicast sections_
 
+UPDATE: This repo has more features so use it instead https://github.com/cirocosta/asciinema-edit
+
 ## Description
 
 This script will allow you to cut out parts of your astiicast that you 
